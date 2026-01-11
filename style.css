@@ -1,566 +1,134 @@
+/* --- الإعدادات العامة --- */
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
     text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
 }
 
 :root {
-    --bgColor: #080e1c;
-    --textwhite: #fff;
-    --sscoler: rgba(144, 0, 255, 0.566);
-    --scoler: rgba(255, 255, 255, 0.82);
-    --c: #080e1c;
-    --mm: #23a3f2;
-
-    --nav: rgba(128, 123, 129, 0.486);
+    --bg-color: #1f242d;
+    --second-bg-color: #323946;
+    --text-color: #fff;
+    --main-color: #0ef;
 }
 
-.white-theme {
-    --bgColor: #fff;
-    --textwhite: #080e1c;
-    --sscoler: rgba(144, 0, 255, 0.566);
-    --scoler: #080e1cde;
-    --c: rgba(128, 123, 129, 0.486);
-    --mm: white;
-    --nav: #080e1cde;
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
 }
 
-
-.one1 {
-    background: var(--bgColor);
-    height: 100vh;
-    overflow: hidden;
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
 }
 
-.one1 header nav {
+/* --- الهيدر (متجاوب تلقائياً) --- */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    margin: -20px;
+    padding: 2rem 9%;
+    background: var(--bg-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 74px;
-    position: fixed;
-    background-color: var(--nav);
-    padding: 20px;
-    z-index: 1000000000000000000;
-}
-
-.one1 header nav .logo {
-    color: var(--textwhite);
-    font-size: 35px;
-    font-weight: bold;
-}
-
-.one1 header nav .logo span {
-    color: rgb(179, 0, 255);
-}
-
-.one1 header nav .link-nav a {
-    color: white;
-    margin: 0 30px;
-    transition: 0.3s;
-}
-
-.one1 header nav .link-nav a:hover {
-    color: rgb(179, 0, 255);
-}
-
-.one1 header nav .mod {
-    color: white;
-    font-size: 25px;
-    cursor: pointer;
-}
-
-.one1 .contanier {
-    width: 90%;
-    margin: auto;
-    display: flex;
-    justify-content: end;
-    height: calc(100vh - 100px);
-    position: relative;
-}
-
-.one1 .contanier .div-text {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: : translateY(-50%);
-}
-
-.one1 .contanier .div-img {
-    position: absolute;
-    width: 34%;
-    bottom: -100px;
-    margin-right: 50px;
-    pointer-events: none;
     z-index: 100;
 }
 
-
+.logo {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    font-weight: 600;
+    cursor: default;
 }
 
-.one1 .contanier,
-.div-img img {
-    width: 100%;
-    z-index: 100;
-
+.navbar a {
+    font-size: 1.7rem;
+    color: var(--text-color);
+    margin-left: 4rem;
+    transition: .3s;
 }
 
-.div-img .pic {
-    height: 1000px;
-    margin: -33px -164px;
-    width: 800px;
-    z-index: 100px;
-
-
+.navbar a:hover,
+.navbar a.active {
+    color: var(--main-color);
 }
 
-.one1 .contanier .div-text h4 {
-    color: #888;
-    font-size: 22px;
+/* --- الأقسام (استخدام Flex بدلاً من Absolute) --- */
+section {
+    min-height: 100vh;
+    padding: 10rem 9% 2rem;
 }
 
-.one1 .contanier .div-text h1 {
-    color: var(--textwhite);
-    font-size: 60px;
-    margin: 15px 0 10px;
-}
-
-.one1 .contanier .div-text span {
-    color: #23a3f2;
-    font-size: 25px;
-    font-weight: bold;
-}
-
-.one1 .contanier .div-text p {
-    color: var(--textwhite);
-    line-height: 1.8;
-    margin: 20px 0 40px;
-}
-
-.one1 .contanier .div-text .btn {
-    color: #fff;
-    background: #23a3f2;
-    padding: 15px 30px;
-    border: 1px solid #23a3f2;
-    position: relative;
-    top: 0;
-    transition: 0.3s;
-    border-radius: 20px;
-}
-
-.one1 .contanier .div-text .btn:hover {
-
-    top: -8px;
-    box-shadow: 0 0 16px #23a3f2;
-}
-
-.social-icon {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: -50px;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-.social-icon a {
-    color: #23a3f2;
-    font-size: 25px;
-    transition: 0.3s;
-}
-
-.social-icon a:hover {
-    transform: scale(1.2);
-}
-
-.one1 {
-
-    padding: 20px;
-}
-
-
-/* section   (2) ---------------------------------------------------------------------------*/
-
-
-
-.skills-box {
-    margin: 10px;
-}
-
-.skills-header {
-    margin-bottom: 30px;
-}
-
-.skills-list {
-    display: flex;
-    flex-wrap: ;
-    gap: 5px;
-    color: aquamarine;
-
-}
-
-.skills-list span {
-    font-size: 14px;
-    background: #23a3f2;
-    color: #fff;
-    padding: 2px 10px;
-    border-radius: 30px;
-}
-
-/* تنسيق لون عنواين المهارات */
-.skills-header h3 {
-    color: var(--bgColor);
-}
-
-
-.one2 {
-    background: var(--bgColor);
-    height: 100vh;
-    overflow: hidden;
-}
-
-/* تنسيق الصورة  */
-.div-img2 .pic2 {
-    position: absolute;
-    width: 34%;
-    bottom: -645px;
-    margin-right: -155px;
-    background-color: var(--textwhite);
-    border-radius: 300px;
-    right: 169px;
-}
-
-/* تنسيق الديف تبع المهارات  */
-.col-1 {
-    background-color: var(--textwhite);
-    height: 100px;
-    width: 500px;
-    border-radius: 20px;
-    margin: 100px;
-    padding: 8px;
-    box-shadow: 0px 0px 20px var(--textwhite);
-}
-
-.col-2 {
-    background-color: var(--textwhite);
-    height: 100px;
-    width: 500px;
-    border-radius: 20px;
-    margin: 100px;
-    padding: 8px;
-    box-shadow: 0px 0px 20px var(--textwhite);
-}
-
-.col-3 {
-    background-color: var(--textwhite);
-    height: 100px;
-    width: 500px;
-    border-radius: 20px;
-    margin: 100px;
-    padding: 8px;
-    box-shadow: 0px 0px 20px var(--textwhite);
-}
-
-.lo {
-    color: var(--textwhite);
-    font-size: 54px;
-    right: 95px;
-    margin-right: auto;
-    text-shadow: 1px 2px 5px var(--textwhite);
-    text-align: left;
-    padding-left: 200px
-}
-
-/* section  (3)  */
-
-.one3 {
-    background: var(--bgColor);
-    height: 100vh;
-    overflow: hidden;
-}
-
-.Backend {
-    background-color: var(--scoler);
-    width: 400px;
-    height: 623px;
-    padding: 24px;
-    border-radius: 20px;
-    box-shadow: 0px 0px 10px 5px var(--textwhite);
-}
-
-.img {
-    height: 165px;
-    width: 352px;
-    padding: 2px;
-    border-radius: 39px;
-    box-shadow: 1px 0px 27px 4px var(--sscoler);
-
-}
-
-.a {
-    padding: 10px;
-    margin: 10px;
-    color: var(--bgColor);
-    font-size: 17px;
-}
-
-.Frontend {
-    background-color: var(--scoler);
-    padding: 24px;
-    border-radius: 20px;
-    box-shadow: 0px 0px 10px 5px var(--textwhite);
-    width: 400px;
-    height: 623px;
-}
-
-.Database {
-    background-color: var(--scoler);
-    padding: 24px;
-    border-radius: 20px;
-    box-shadow: 0px 0px 10px 5px var(--textwhite);
-    width: 400px;
-    height: 623px;
-}
-
-.basic {
+.home {
     display: flex;
     justify-content: center;
-    gap: 71px;
-    padding: 48px;
-    background-color: var(--bgColor);
-}
-
-.basic h5 {
-    color: var(--bgColor);
-    margin: center;
-    padding-top: 10px;
-    text-align: center;
-    font-size: large;
-}
-
-/*  section (4)----------------------------------------------------------------------- */
-.one4 {
-    background: var(--bgColor);
-    height: 100vh;
-    overflow: hidden;
-}
-
-
-.I-1 {
-    color: var(--textwhite);
-    width: 480px;
-    height: 525px;
-    margin-top: 114px;
-    margin-right: 103px;
-}
-
-.I-1 h3 {
-    color: #23a3f2;
-
-}
-
-.I-1 p {
-    margin: 10px;
-    text-align: start;
-}
-
-.cv-1 {
-
-    text-align: end;
-
-}
-
-.cv-1 .img-1 {
-    box-shadow: 0 0 10px 10px var(--textwhite);
-    width: 443px;
-    height: 525px;
-    margin-top: 114px;
-    margin-right: 103px;
-    border-radius: 20px
-}
-
-.basic {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    padding: 10pxpx;
-}
-
-/* section (5) ------------------------------------------------------------------------------------*/
-
-.h {
-    background: url(contect2.jpg);
-    width: 100%;
-    height: 100vh;
-    /* جعلنا تسجيل الدخول بالمنتصف */
-    display: flex;
     align-items: center;
-    justify-content: center;
-    /* ربط مع بوزيشن لحتى نضيف طبقة فوق الصورة  */
-    position: relative;
-    background-size: cover;
+    gap: 2rem;
 }
 
-.one5 {
-    background: var(--c);
-    height: 100vh;
-    overflow: hidden;
-    z-index: -10;
-
+.home-content h3 {
+    font-size: 3.2rem;
+    font-weight: 700;
 }
 
-
-/* تنسيق مربع تسجيل الدخول */
-.form1 {
-    background-size: contain;
-    padding-top: -9px;
-    padding-right: 36px;
-    padding-bottom: 0px;
-    padding-left: 18px;
-    color: white;
-    border-radius: 10px;
-    width: 439px;
-    height: 418px;
-    box-shadow: 0 0 20px 5px var(--mm);
-    text-align: right;
-    position: relative;
-    z-index: 100;
-    margin-bottom: 171px;
-
+.home-content h1 {
+    font-size: 5.6rem;
+    font-weight: 700;
+    line-height: 1.3;
 }
 
-.form1 .in-1 {
-    width: 100%;
-    margin: 10px;
-    height: 25px;
-    border: 1px solid rgb(179, 0, 255);
-    border-radius: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
+span {
+    color: var(--main-color);
 }
 
-.form1 .in-2 {
-
-    width: 100%;
-    margin: 10px;
-    height: 137px;
-    border: 1px solid rgb(179, 0, 255);
-    border-radius: 33px;
-    padding-left: 22px;
-    padding-right: 13px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-size: ;
+.home-content p {
+    font-size: 1.6rem;
 }
 
-.form1 label {
-    color: white;
-    font-weight: bold;
+/* --- إصلاح التجاوب للهواتف (هنا السحر) --- */
+
+@media (max-width: 1200px) {
+    html { font-size: 55%; }
 }
 
-.form1 .send {
-    width: 100px;
-    height: 30px;
-    background: #23a3f2;
-    color: darkslategray;
-    font-size: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-    border-radius: 10px
+@media (max-width: 991px) {
+    .header { padding: 2rem 3%; }
+    section { padding: 10rem 3% 2rem; }
 }
 
-.form1 .send:hover {
-    background-color: rgb(179, 0, 255);
-}
-
-.loog {
-    position: relative;
-    top: 100px;
-}
-
-
-
-/* --- إضافة تنسيقات الهواتف (Responsive Design) --- */
-
-@media screen and (max-width: 768px) {
-    
-    /* 1. إلغاء التموضع المطلق (Absolute) الذي يسبب تداخل العناصر */
-    section, div, header, nav {
-        position: relative !important;
-        left: 0 !important;
-        top: 0 !important;
-        width: 100% !important;
-        height: auto !important;
-        transform: none !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        padding: 20px !important;
-    }
-
-    /* 2. جعل القائمة العلوية تترتب عمودياً */
-    header {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        text-align: center !important;
-    }
-
+@media (max-width: 768px) {
+    /* تحويل القائمة إلى عمودية عند الحاجة أو إخفاؤها */
     .navbar {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 15px !important;
-        margin-top: 20px !important;
+        display: none; /* يمكنك لاحقاً إضافة زر القائمة */
     }
 
-    /* 3. إصلاح قسم الـ Home وصورة البروفايل */
     .home {
-        display: flex !important;
-        flex-direction: column-reverse !important; /* الصورة فوق والنص تحت أو العكس */
-        justify-content: center !important;
-        align-items: center !important;
-        padding-top: 50px !important;
-    }
-
-    .home-content {
-        text-align: center !important;
+        flex-direction: column; /* جعل العناصر فوق بعضها */
+        text-align: center;
     }
 
     .home-content h1 {
-        font-size: 28px !important;
+        font-size: 4rem;
     }
 
-    /* 4. جعل الخدمات والأعمال تظهر فوق بعضها بدل بجانب بعضها */
-    .services-container, .portfolio-container, .work-container {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-    }
-
-    .services-box, .portfolio-box, .work-box {
-        width: 90% !important;
-        margin: 15px 0 !important;
-    }
-
-    /* 5. ضبط الصور لتناسب عرض الشاشة */
+    /* جعل أي صور في الموقع مرنة */
     img {
-        max-width: 100% !important;
-        height: auto !important;
-        object-fit: cover !important;
+        width: 80%;
+        height: auto;
     }
 
-    /* 6. قسم "اتصل بي" (Contact) */
-    form {
-        width: 100% !important;
-        padding: 10px !important;
+    /* جعل الأقسام الأخرى تترتب عمودياً */
+    .about, .services, .portfolio {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
-}
-
-/* تعديل إضافي للشاشات الصغيرة جداً (مثل آيفون SE) */
-@media screen and (max-width: 450px) {
-    h1 { font-size: 22px !important; }
-    p { font-size: 14px !important; }
 }
