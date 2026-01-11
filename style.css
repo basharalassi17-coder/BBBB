@@ -1,134 +1,73 @@
-/* --- الإعدادات العامة --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    border: none;
-    outline: none;
-    scroll-behavior: smooth;
-    font-family: 'Poppins', sans-serif;
-}
+/* --- هذا الكود يوضع في نهاية ملف CSS --- */
 
-:root {
-    --bg-color: #1f242d;
-    --second-bg-color: #323946;
-    --text-color: #fff;
-    --main-color: #0ef;
-}
-
-html {
-    font-size: 62.5%;
-    overflow-x: hidden;
-}
-
-body {
-    background: var(--bg-color);
-    color: var(--text-color);
-}
-
-/* --- الهيدر (متجاوب تلقائياً) --- */
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 2rem 9%;
-    background: var(--bg-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-}
-
-.logo {
-    font-size: 2.5rem;
-    color: var(--text-color);
-    font-weight: 600;
-    cursor: default;
-}
-
-.navbar a {
-    font-size: 1.7rem;
-    color: var(--text-color);
-    margin-left: 4rem;
-    transition: .3s;
-}
-
-.navbar a:hover,
-.navbar a.active {
-    color: var(--main-color);
-}
-
-/* --- الأقسام (استخدام Flex بدلاً من Absolute) --- */
-section {
-    min-height: 100vh;
-    padding: 10rem 9% 2rem;
-}
-
-.home {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-}
-
-.home-content h3 {
-    font-size: 3.2rem;
-    font-weight: 700;
-}
-
-.home-content h1 {
-    font-size: 5.6rem;
-    font-weight: 700;
-    line-height: 1.3;
-}
-
-span {
-    color: var(--main-color);
-}
-
-.home-content p {
-    font-size: 1.6rem;
-}
-
-/* --- إصلاح التجاوب للهواتف (هنا السحر) --- */
-
-@media (max-width: 1200px) {
-    html { font-size: 55%; }
-}
-
-@media (max-width: 991px) {
-    .header { padding: 2rem 3%; }
-    section { padding: 10rem 3% 2rem; }
-}
-
-@media (max-width: 768px) {
-    /* تحويل القائمة إلى عمودية عند الحاجة أو إخفاؤها */
-    .navbar {
-        display: none; /* يمكنك لاحقاً إضافة زر القائمة */
+@media screen and (max-width: 768px) {
+    /* 1. إلغاء التموضع الثابت الذي يسبب تداخل العناصر */
+    * {
+        position: static !important; /* هذا السطر هو الأهم، سيعيد العناصر لمسارها الطبيعي */
+        transform: none !important;
+        width: auto !important;
     }
 
-    .home {
-        flex-direction: column; /* جعل العناصر فوق بعضها */
-        text-align: center;
-    }
-
-    .home-content h1 {
-        font-size: 4rem;
-    }
-
-    /* جعل أي صور في الموقع مرنة */
-    img {
-        width: 80%;
-        height: auto;
-    }
-
-    /* جعل الأقسام الأخرى تترتب عمودياً */
-    .about, .services, .portfolio {
+    body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        text-align: center;
+        overflow-x: hidden;
+    }
+
+    /* 2. تحويل الحاويات لتصبح عمودية */
+    section {
+        width: 100vw !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 40px 20px !important;
+        height: auto !important;
+        min-height: unset !important;
+    }
+
+    /* 3. إصلاح الصور (لكي لا تخرج عن الشاشة) */
+    img {
+        max-width: 90% !important;
+        height: auto !important;
+        margin: 20px auto !important;
+        display: block !important;
+    }
+
+    /* 4. إصلاح النصوص والعناوين */
+    h1, h2, h3, p {
+        text-align: center !important;
+        width: 100% !important;
+        margin: 10px 0 !important;
+        left: 0 !important;
+    }
+
+    h1 { font-size: 2.5rem !important; }
+
+    /* 5. القائمة العلوية */
+    .header, nav {
+        position: relative !important;
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        padding: 10px !important;
+    }
+
+    .navbar {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+
+    /* 6. إصلاح صناديق الخدمات والأعمال */
+    .services-container, .portfolio-container, .work-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+
+    .services-box, .portfolio-box, .card {
+        width: 90% !important;
+        margin: 10px auto !important;
     }
 }
